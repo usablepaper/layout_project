@@ -1,0 +1,27 @@
+$white: #fff;
+$black: #000000;
+$gray2: #4f4f4f;
+$gray3: #828282;
+$gray4: #bdbdbd;
+$gray6: #f2f2f2;
+$red: #eb5757;
+
+$font-sizes: (
+    "h1": 24px,
+    "card-title": 16px,
+    "button": 14px,
+    "card-info": 13px,
+    "footer": 22px,
+    "footer-info": 14px,
+);
+
+.card-section {
+    border: 1px solid black;
+}
+
+.card-box {
+    .card-img {
+        width: 200px;
+        height: 200px;
+    }
+}
