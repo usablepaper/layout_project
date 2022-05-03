@@ -8,6 +8,7 @@ $red: #eb5757;
 
 $font-sizes: (
     "h1": 24px,
+    "menu-navbar": 16px,
     "card-title": 16px,
     "button": 14px,
     "card-info": 13px,
@@ -15,13 +16,164 @@ $font-sizes: (
     "footer-info": 14px,
 );
 
+.wrapper {
+    margin: 70px auto 0;
+    width: fit-content;
+    // min-width: 700px;
+    background-color: $gray6;
+    padding: 0 28px;
+    border : {
+        width: 2px;
+        style: solid;
+        color: $gray4;
+        radius: 10px;
+    }
+}
+
 .card-section {
-    border: 1px solid black;
+    display: inline-block;
+    background-color: $white;
+    padding: 26px 27px 30px 27px;
+    margin-bottom: 31px;
+    border : {
+        width: 2px;
+        style: solid;
+        color: $gray4;
+        radius: 10px;
+    }
+    ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 23px;
+        row-gap: 24px;
+    }
+}
+
+.header {
+    margin-top: 41px;
+}
+
+.text-header {
+    text-align: center;
+    margin: 0 205px;
+    padding-bottom: 37px;
+    border-bottom : {
+        width: 2px;
+        style: solid;
+        color: $gray4;
+    }
+    font : {
+        size: map-get($font-sizes, "h1");
+        weight: 700;
+    }
+}
+
+.navbar {
+    padding: 28px 0;
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        .menu-navbar {
+            font : {
+                size: map-get($font-sizes, "menu-navbar");
+                weight: 500;
+            }
+            color: $gray3;
+        }
+        .menu-navbar.clicked {
+            color: $black;
+            font-weight: 900;
+        }
+    }
 }
 
 .card-box {
+    display: inline-block;
+    padding: 19px 20px 0 20px;
+    overflow: hidden;
+    border : {
+        width: 1px;
+        style: solid;
+        color: $gray4;
+        radius: 10px;
+    }
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
     .card-img {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 250px;
+        margin-bottom: 11px;
+    }
+    .card-title {
+        display: block;
+        margin-bottom: 12px;
+    }
+    .card-info {
+        position: relative;
+        margin-bottom: 18px;
+        dl {
+            display: flex;
+            gap: 5px;
+            &:last-child {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+    button {
+        display: inline-block;
+        width: calc(50% + 20px);
+        padding: 10px 0 11px 0;
+        line-height: 20.27px;
+        float: left;
+        cursor: pointer;
+        &.button-reserve {
+            margin-left: -20px;
+        }
+        &.button-preview {
+            margin-right: -20px;
+            border-left: {
+                width: 1px;
+                radius: 0;
+                color: $gray4;
+                style: solid;
+            }
+        }
+
+        border: none;
+
+        border-top: {
+            width: 1px;
+            radius: 0;
+            color: $gray4;
+            style: solid;
+        }
+    }
+}
+
+.footer {
+    margin-top: 135px;
+    padding: 53px 0 38px 0;
+    background-color: $gray6;
+    .logo-footer {
+        display: block;
+        padding-bottom: 42px;
+        margin-bottom: 36px;
+        border-bottom: {
+            width: 1px;
+            color: $gray4;
+            style: solid;
+        }
+    }
+    .container-sns {
+    }
+    .container-info-footer {
+        dl {
+            display: flex;
+        }
+        .contents-info-footer {
+            display: inline-block;
+        }
     }
 }
