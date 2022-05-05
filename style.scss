@@ -17,9 +17,7 @@ $font-sizes: (
 );
 
 .wrapper {
-    margin: 70px auto 0;
-    width: fit-content;
-    // min-width: 700px;
+    margin: 70px auto 135px;
     background-color: $gray6;
     padding: 0 28px;
     border : {
@@ -30,38 +28,16 @@ $font-sizes: (
     }
 }
 
-.card-section {
-    display: inline-block;
-    background-color: $white;
-    padding: 26px 27px 30px 27px;
-    margin-bottom: 31px;
-    border : {
-        width: 2px;
-        style: solid;
-        color: $gray4;
-        radius: 10px;
-    }
-    ul {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        column-gap: 23px;
-        row-gap: 24px;
-    }
-}
-
 .header {
     margin-top: 41px;
 }
 
 .text-header {
     text-align: center;
-    margin: 0 205px;
+    margin: 0 auto;
+    width: 50%;
     padding-bottom: 37px;
-    border-bottom : {
-        width: 2px;
-        style: solid;
-        color: $gray4;
-    }
+    border-bottom: 2px solid $gray4;
     font : {
         size: map-get($font-sizes, "h1");
         weight: 700;
@@ -88,92 +64,182 @@ $font-sizes: (
     }
 }
 
-.card-box {
-    display: inline-block;
-    padding: 19px 20px 0 20px;
-    overflow: hidden;
-    border : {
-        width: 1px;
-        style: solid;
-        color: $gray4;
-        radius: 10px;
-    }
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
-    .card-img {
-        width: 180px;
-        height: 250px;
-        margin-bottom: 11px;
-    }
-    .card-title {
-        display: block;
-        margin-bottom: 12px;
-    }
-    .card-info {
-        position: relative;
-        margin-bottom: 18px;
-        dl {
-            display: flex;
-            gap: 5px;
-            &:last-child {
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
+.card-section {
+    margin: 0 auto;
+    background-color: $white;
+    padding: 26px 27px 30px 27px;
+    margin-bottom: 31px;
+    border: 2px solid $gray4;
+    border-radius: 10px;
+    max-width: 1060px;
+    ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 23px;
+        row-gap: 24px;
+        @media (max-width: 1060px) {
+            grid-template-columns: repeat(3, 1fr);
         }
-    }
-    button {
-        display: inline-block;
-        width: calc(50% + 20px);
-        padding: 10px 0 11px 0;
-        line-height: 20.27px;
-        float: left;
-        cursor: pointer;
-        &.button-reserve {
-            margin-left: -20px;
+        @media (max-width: 780px) {
+            grid-template-columns: repeat(2, 1fr);
         }
-        &.button-preview {
-            margin-right: -20px;
-            border-left: {
-                width: 1px;
-                radius: 0;
-                color: $gray4;
-                style: solid;
-            }
-        }
-
-        border: none;
-
-        border-top: {
-            width: 1px;
-            radius: 0;
-            color: $gray4;
-            style: solid;
+        @media (max-width: 570px) {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }
 
+.card {
+    width: 100%;
+    padding-top: 19px;
+    border: 1px solid $gray4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    .contents-area {
+        padding: 0 20px;
+        .container-img {
+            position: relative;
+            overflow: hidden;
+            height: 0;
+            margin-bottom: 11px;
+            padding-top: 139%;
+            background-color: $gray4;
+            .card-img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .card-title {
+            display: block;
+            margin-bottom: 12px;
+            white-space: nowrap;
+            font-size: map-get($font-sizes, "card-title");
+            font-weight: 900;
+        }
+        .card-info {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+    }
+    .button-area {
+        display: flex;
+        button {
+            width: 100%;
+            padding: 10px 0 11px 0;
+            line-height: 20.27px;
+            border: none;
+            border-top: 1px solid $gray4;
+            cursor: pointer;
+            &.button-preview {
+                border-left: 1px solid $gray4;
+            }
+        }
+    }
+}
+
+.card-info dl {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    white-space: nowrap;
+    font-size: map-get($font-sizes, "card-info");
+    margin-bottom: 5px;
+    dt {
+        color: $gray3;
+    }
+    dd {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &.card-star_rating {
+            display: flex;
+            align-items: flex-start;
+            &::before {
+                content: "";
+                width: 14px;
+                height: 14px;
+                display: inline-block;
+                background-image: url(./images/별점이미지.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+        }
+    }
+    &:nth-child(1) {
+        width: 60%;
+    }
+    &:nth-child(2) {
+        width: 40%;
+        justify-content: flex-end;
+    }
+    &:last-child {
+        margin: 0;
+    }
+}
+
 .footer {
-    margin-top: 135px;
     padding: 53px 0 38px 0;
     background-color: $gray6;
+    .wrapper-footer {
+        width: 70%;
+        margin: 0 auto;
+    }
     .logo-footer {
-        display: block;
-        padding-bottom: 42px;
-        margin-bottom: 36px;
-        border-bottom: {
-            width: 1px;
-            color: $gray4;
-            style: solid;
+        font : {
+            size: map-get($font-sizes, "footer");
+            weight: 700;
         }
     }
     .container-sns {
+        float: right;
+        display: flex;
+        gap: 25px;
+        justify-content: flex-end;
+        .link-sns {
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        @for $sns from 1 through 3 {
+            .link-sns.sns-#{$sns} {
+                background-image: url("./images/SNS_아이콘/sns-#{$sns}.svg");
+            }
+        }
     }
     .container-info-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding-top: 36px;
+        margin-top: 42px;
+        border-top: 1px solid $gray4;
+        .wrapper-contents dl::before {
+            content: "|";
+            display: inline-block;
+            padding: 0 5px;
+        }
         dl {
             display: flex;
+            color: $gray2;
+            font-size: map-get($font-sizes, "footer-info");
+            dt {
+                padding-right: 5px;
+            }
         }
         .contents-info-footer {
             display: inline-block;
+            .bold {
+                font-weight: 700;
+            }
+            &:first-child dl::before {
+                display: none;
+            }
         }
     }
 }
