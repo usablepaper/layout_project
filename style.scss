@@ -35,12 +35,15 @@ $font-sizes: (
 .text-header {
     text-align: center;
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
     padding-bottom: 37px;
     border-bottom: 2px solid $gray4;
     font : {
         size: map-get($font-sizes, "h1");
         weight: 700;
+    }
+    @media (max-width: 570px) {
+        width: 100%;
     }
 }
 
@@ -50,6 +53,7 @@ $font-sizes: (
         display: flex;
         justify-content: center;
         gap: 60px;
+        white-space: nowrap;
         .menu-navbar {
             font : {
                 size: map-get($font-sizes, "menu-navbar");
@@ -60,6 +64,10 @@ $font-sizes: (
         .menu-navbar.clicked {
             color: $black;
             font-weight: 900;
+        }
+        @media (max-width: 570px) {
+            gap: 0;
+            justify-content: space-between;
         }
     }
 }
@@ -184,9 +192,15 @@ $font-sizes: (
 .footer {
     padding: 53px 0 38px 0;
     background-color: $gray6;
+    @media (max-width: 480px) {
+        padding: 30px 0;
+    }
     .wrapper-footer {
         width: 70%;
         margin: 0 auto;
+        @media (max-width: 480px) {
+            width: 90%;
+        }
     }
     .logo-footer {
         font : {
@@ -199,6 +213,11 @@ $font-sizes: (
         display: flex;
         gap: 25px;
         justify-content: flex-end;
+        @media (max-width: 480px) {
+            float: none;
+            justify-content: flex-start;
+            margin-top: 10px;
+        }
         .link-sns {
             width: 20px;
             height: 20px;
@@ -219,10 +238,17 @@ $font-sizes: (
         padding-top: 36px;
         margin-top: 42px;
         border-top: 1px solid $gray4;
+        @media (max-width: 480px) {
+            padding-top: 15px;
+            margin-top: 25px;
+        }
         .wrapper-contents dl::before {
             content: "|";
             display: inline-block;
             padding: 0 5px;
+            @media (max-width: 480px) {
+                display: none;
+            }
         }
         dl {
             display: flex;
@@ -233,7 +259,12 @@ $font-sizes: (
             }
         }
         .contents-info-footer {
+            white-space: inherit;
             display: inline-block;
+            @media (max-width: 480px) {
+                display: block;
+                margin-bottom: 4px;
+            }
             .bold {
                 font-weight: 700;
             }

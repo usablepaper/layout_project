@@ -16,11 +16,17 @@
 .text-header {
   text-align: center;
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
   padding-bottom: 37px;
   border-bottom: 2px solid #bdbdbd;
   font-size: 24px;
   font-weight: 700;
+}
+
+@media (max-width: 570px) {
+  .text-header {
+    width: 100%;
+  }
 }
 
 .navbar {
@@ -35,6 +41,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   gap: 60px;
+  white-space: nowrap;
 }
 
 .navbar ul .menu-navbar {
@@ -46,6 +53,15 @@
 .navbar ul .menu-navbar.clicked {
   color: #000000;
   font-weight: 900;
+}
+
+@media (max-width: 570px) {
+  .navbar ul {
+    gap: 0;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 .card-section {
@@ -216,9 +232,21 @@
   background-color: #f2f2f2;
 }
 
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 0;
+  }
+}
+
 .footer .wrapper-footer {
   width: 70%;
   margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .footer .wrapper-footer {
+    width: 90%;
+  }
 }
 
 .footer .logo-footer {
@@ -235,6 +263,16 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+@media (max-width: 480px) {
+  .footer .container-sns {
+    float: none;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-top: 10px;
+  }
 }
 
 .footer .container-sns .link-sns {
@@ -270,10 +308,23 @@
   border-top: 1px solid #bdbdbd;
 }
 
+@media (max-width: 480px) {
+  .footer .container-info-footer {
+    padding-top: 15px;
+    margin-top: 25px;
+  }
+}
+
 .footer .container-info-footer .wrapper-contents dl::before {
   content: "|";
   display: inline-block;
   padding: 0 5px;
+}
+
+@media (max-width: 480px) {
+  .footer .container-info-footer .wrapper-contents dl::before {
+    display: none;
+  }
 }
 
 .footer .container-info-footer dl {
@@ -289,7 +340,15 @@
 }
 
 .footer .container-info-footer .contents-info-footer {
+  white-space: inherit;
   display: inline-block;
+}
+
+@media (max-width: 480px) {
+  .footer .container-info-footer .contents-info-footer {
+    display: block;
+    margin-bottom: 4px;
+  }
 }
 
 .footer .container-info-footer .contents-info-footer .bold {
