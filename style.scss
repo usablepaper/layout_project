@@ -16,7 +16,12 @@ $font-sizes: (
     "footer-info": 14px,
 );
 
+body {
+    width: 100vw;
+}
+
 .wrapper {
+    width: fit-content;
     margin: 70px auto 135px;
     background-color: $gray6;
     padding: 0 28px;
@@ -25,6 +30,11 @@ $font-sizes: (
         style: solid;
         color: $gray4;
         radius: 10px;
+    }
+    @media (max-width: 1060px) {
+        margin: 0;
+        background-color: $white;
+        border: none;
     }
 }
 
@@ -85,15 +95,15 @@ $font-sizes: (
         grid-template-columns: repeat(4, 1fr);
         column-gap: 23px;
         row-gap: 24px;
-        @media (max-width: 1060px) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        @media (max-width: 780px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        @media (max-width: 570px) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+        // @media (max-width: 1060px) {
+        //     grid-template-columns: repeat(3, 1fr);
+        // }
+        // @media (max-width: 780px) {
+        //     grid-template-columns: repeat(2, 1fr);
+        // }
+        // @media (max-width: 570px) {
+        //     grid-template-columns: repeat(1, 1fr);
+        // }
     }
 }
 
@@ -259,7 +269,7 @@ $font-sizes: (
             }
         }
         .contents-info-footer {
-            white-space: inherit;
+            white-space: nowrap;
             display: inline-block;
             @media (max-width: 480px) {
                 display: block;
